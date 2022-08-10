@@ -6,12 +6,12 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 08:58:48 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/10 11:35:03 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/10 14:31:22 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-t_lay ft_newlay(void)
+t_lay ft_new_lay(void)
 {
 	t_lay	lay;
 
@@ -43,6 +43,6 @@ char	**check_map(int fd, t_lay *lay)
 
 	map_line = NULL;
 	full_map = NULL;
-	*lay = ft_newlay();
-	ft_readmap(fd, lay, &map_line);
+	*lay = ft_new_lay();
+	ft_read_map(fd, lay, &map_line);
 }
