@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.h                                            :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/10 13:36:39 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/17 08:37:59 by gussoare         ###   ########.fr       */
+/*   Created: 2022/08/17 08:22:23 by gussoare          #+#    #+#             */
+/*   Updated: 2022/08/17 08:54:23 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECK_H
-# define CHECK_H
+#ifndef UTILS_H
+# define UTILS_H
 
-# include <fcntl.h>
-# include <stdio.h>
 # include "../libft/libft.h"
-# include "utils.h"
-# include "map.h"
 
-char	**check_param(int argc, char **argv, t_lay *lay);
-char	**check_map(int fd, t_lay *lay);
+char	*ft_strenlarge(char *s1, char *s2);
+int		ft_countchar(char *s, int c);
+int		ft_strrncmp(char *s1, char *s2, size_t n);
 
 #endif

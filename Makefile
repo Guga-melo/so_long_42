@@ -4,17 +4,18 @@ NAME	= so_long
 OFLAGS	= -Wall -Werror -Wextra -L ./minilibx -lmlx -framework OpenGL -framework AppKit
 CFLAGS	= -Wall -Werror -Wextra 
 RM		= rm -f
+LIBFT	= ./libft/libft.a
 
 SRCS	= ./GNL/get_next_line.c ./GNL/get_next_line_utils.c \
-		  ./src/window.c
+		  ./src/check.c ./src/map.c ./src/main.c ./src/utils_1.c
 
 OBJS	= $(SRCS:.c=.o)
 
 $(NAME):	$(OBJS)
 			make -C ./libft
 			make -C ./minilibx
-			cp ./libft/libft.a $(NAME)
-			cc $(OFLAGS) $(OBJS) -o $(NAME)
+
+			cc $(OFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 all:		$(NAME)
 
