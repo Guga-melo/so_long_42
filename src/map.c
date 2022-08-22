@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 11:28:37 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/17 12:52:15 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/22 13:42:56 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ void	ft_check_lay(char *line, t_lay *lay)
 		lay->n_col = ft_strlen(line) - 1;
 	lay->n_exit += ft_countchar(line, 'E');
 	lay->n_pl += ft_countchar(line, 'P');
-	lay->n_en += ft_countchar(line, 'G');
+	lay->n_gh += ft_countchar(line, 'G');
 	lay->n_coin += ft_countchar(line, 'C');
 }

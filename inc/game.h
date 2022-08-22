@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 13:30:42 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/18 14:15:31 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/22 14:32:24 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,28 @@
 # define GAME_H
 
 # define SIZE 32
+# define COLORS "RBKOGYP"
+# define GAME_RATE 17
+# ifdef __linux__
+#  include "../minilibx-linux/mlx.h"
+# else
+#  include "../minilibx/mlx.h"
+# endif
 
-# include "../minilibx/mlx.h"
 # include "../libft/libft.h"
-# include "utils.h"
 # include "map.h"
+# include "utils.h"
 # include "colors.h"
 # include <stdio.h>
 
-typedef struct s_vector
+enum e_direction
 {
-	int	x;
-	int	y;
-}				t_vector;
-
+	ST = 0,
+	N = 1,
+	S = -1,
+	E = 2,
+	W = -2
+};
 
 typedef struct s_font
 {
@@ -120,5 +128,22 @@ void		new_game(char **map, t_game *game, t_lay *lay);
 t_sprite	init_sprites(t_game *game);
 t_list		*load_pac_death(t_game *game);
 t_font		load_score_font(t_game *game);
+void		ft_entitylist(char **map, t_game *game);
+t_player	*ft_entnew(t_vector pos);
+void    	ft_entadd_back(t_player **lst, t_player *newnode);
+void		ft_load_ghosts(t_game *game);
+t_list		*ft_chooseghcolor(t_game *game, int i, int dir);
+t_list		*ft_load_north(t_game *game, char *path, int i);
+t_list		*ft_load_south(t_game *game, char *path, int i);
+t_list		*ft_load_east(t_game *game, char *path, int i);
+t_list		*ft_load_west(t_game *game, char *path, int i);
+t_list		*ft_load_panic(t_game *game, int i);
+void		ft_load_pacmans(t_game *game);
+int			ft_update(t_game *game);
+void		ft_check_game(t_game *game);
+void		ft_redraw_gh(t_game *game);
+void		ft_redraw_pac(t_game *game);
+void		ft_update_ghost(t_game *game);
+t_player	ft_murderpath(t_game *game, t_player *ghost);
 
 #endif

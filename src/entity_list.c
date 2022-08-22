@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.h                                              :+:      :+:    :+:   */
+/*   entity_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/10 08:21:20 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/22 13:42:20 by gussoare         ###   ########.fr       */
+/*   Created: 2022/08/22 08:22:34 by gussoare          #+#    #+#             */
+/*   Updated: 2022/08/22 09:40:37 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_H
-# define MAP_H
+#include "../inc/game.h"
 
-# include <stdlib.h>
-# include "../GNL/get_next_line.h"
-
-typedef struct	s_lay
+void	ft_entitylist(char **map, t_game *game)
 {
-	int			n_row;
-	int			n_col;
-	int			n_exit;
-	int			n_pl;
-	int			n_gh;
-	int			n_coin;
-}							t_lay;
+	int	x;
+	int	y;
 
-t_lay	ft_new_lay(void);
-void	ft_read_map(int fd, t_lay *lay, char **map_line);
-void	ft_check_lay(char *line, t_lay *lay);
-
-#endif
-
+	y = 0;
+	while (map[y])
+	{
+		x = 0;
+		while (map[y][x])
+		{
+			if (map[y][x] == 'P')
+				ft_entadd_back(&game->pl, ft_entnew(ft_newvector(x, y)));
+			if (map[y][x] == 'G')
+				ft_entadd_back(&game->pl, ft_entnew(ft_newvector(x, y)));
+			x++;
+		}
+		y++;
+	}
+}

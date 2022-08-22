@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 08:02:21 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/15 14:38:26 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/22 09:36:38 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+ typedef struct s_vector
+{
+	int x;
+	int y;
+}               t_vector;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

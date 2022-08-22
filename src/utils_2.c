@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 09:26:31 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/18 10:19:06 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/22 08:56:48 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,13 @@ char	**ft_matrixdup(char **m)
 	}
 	dup[i] = 0;
 	return (dup);
+}
+
+t_vector	ft_newvector(int x, int y)
+{
+	t_vector	position;
+
+	position.x = x;
+	position.y = y;
+	return (position);
 }
