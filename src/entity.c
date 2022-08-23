@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 08:36:06 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/22 13:43:34 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/23 11:16:56 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,81 @@ void	ft_entadd_back(t_player **lst, t_player *newnode)
 		*lst = newnode;
 }
 
+int	ft_delete_entity(t_game *game, t_vector old)
+{
+	t_player	*temp;
+	t_player	*prev;
+
+	temp = game->pl;
+	prev = NULL;
+	game->lay->n_pl--;
+	while (temp)
+	{
+		if (temp->pos.x == old.x && temp->pos.y == old.y)
+		{
+			ft_free_singlepl(game, temp);
+			if (!prev)
+				return (ft_deletefirst_ent(game));
+			if (prev && !temp->next)
+				return (ft_deletelast_ent(game));
+			prev->next = temp->next;
+			free(temp);
+			temp = NULL;
+			return (1);
+		}
+		prev = temp;
+		temp = temp->next;
+	}
+	return (1);
+}
+
+int	ft_checkmvtogh(t_game *game, int d, t_player *pl)
+{
+	t_player	*gh;
+
+	gh = game->gh;
+	while (gh)
+	{
+		if (d == N && pl->pos.y - 1 == gh->pos.y && pl->pos.x == gh->pos.x)
+			game->pac_dying = 1;
+		if (d == S && pl->pos.y + 1 == gh->pos.y && pl->pos.x == gh->pos.x)
+			game->pac_dying = 1;
+		if (d == E && pl->pos.y == gh->pos.y && pl->pos.x + 1 == gh->pos.x)
+			game->pac_dying = 1;
+		if (d == W && pl->pos.y == gh->pos.y && pl->pos.x - 1 == gh->pos.x)
+			game->pac_dying = 1;
+		if (pl->pos.y == gh->pos.y && pl->pos.x == gh->pos.x)
+			game->pac_dying = 1;
+		gh = gh->next;
+	}
+	return (game->pac_dying);
+}
+
 int	ft_update(t_game *game)
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
 
 	y = 0;
 	game->n_frames++;
 	ft_check_game(game);
+	if (game->redraw)
+	{
+		ft_put_ghosts(game);
+		mlx_put_image_to_window(game->id, game->w_id, game->sprites.logo, \
+		(game->width - 131) / 2, game->height - 42);
+		ft_update_score(game);
+		while (game->map[y])
+		{
+			x = 0;
+			while (game->map[y][x])
+			{
+				ft_put_map(game, x, y);
+				x++;
+			}
+			y++;
+		}
+		game->redraw = 0;
+	}
+	return (0);
 }

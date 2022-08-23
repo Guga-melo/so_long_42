@@ -19,10 +19,11 @@ CFLAGS	= -Wall -Werror -Wextra
 RM		= rm -f
 LIBFT	= ./libft/libft.a
 SRCS	= ./GNL/get_next_line.c ./GNL/get_next_line_utils.c \
-		  ./src/check.c ./src/map.c ./src/main.c ./src/utils_1.c ./src/utils_2.c \
+		  ./src/check.c ./src/map.c  ./src/utils_1.c ./src/utils_2.c \
 		  ./src/game.c ./src/sprites.c ./src/animation.c ./src/score.c ./src/entity_list.c \
-		  ./src/entity.c ./src/ghosts.c ./src/load_dir.c ./src/pacman.c ./src/render.c
-
+		  ./src/entity.c ./src/ghosts.c ./src/load_dir.c ./src/pacman.c ./src/render.c \
+		  ./src/utils_math.c ./src/legal.c ./src/animation_dir.c ./src/utils_game.c \
+		  ./src/kill_pac.c
 
 OBJS	= $(SRCS:.c=.o)
 

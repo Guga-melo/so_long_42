@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 13:39:37 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/18 14:22:03 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/23 08:43:43 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,19 @@ t_list	*load_pac_death(t_game *game)
 				"../sprites/Pac-Man/Dying/pacman_woosh.xpm", &size, &size)));
 	}
 	return (pacdeath);
+}
+
+void	free_animation(t_game *game, t_list *start)
+{
+	t_list		*temp;
+
+	temp = NULL;
+	while (start)
+	{
+		temp = start;
+		start = start->next;
+		if (game)
+			mlx_destroy_image(game->id, temp->content);
+		free(temp);
+	}
 }

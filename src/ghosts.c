@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 09:52:06 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/22 14:36:53 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/23 09:55:35 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,66 @@ void	ft_load_ghosts(t_game *game)
 	}
 }
 
+void	ft_put_ghosts(t_game *game)
+{
+	t_player	*ghost;
+
+	ghost = game->gh;
+	while (ghost)
+	{
+		mlx_put_image_to_window(game->id, game->w_id, game->sprites.black, \
+			ghost->win_pos.x, ghost->win_pos.y);
+		if (ghost->dir == N && !game->panic_mode && ghost->moving)
+			ft_anim_north(game, ghost);
+		if (ghost->dir == S && !game->panic_mode && ghost->moving)
+			ft_anim_south(game, ghost);
+		if (((ghost->dir == E && ghost->moving) || \
+				ghost->dir == ST) && !game->panic_mode)
+			ft_anim_east(game, ghost);
+		if (ghost->dir == W && !game->panic_mode && ghost->moving)
+			ft_anim_west(game, ghost);
+		if (game->panic_mode)
+			ft_anim_panic(game, ghost);
+		else if (!ghost->moving)
+			ft_put_stopped(game, ghost);
+		ghost = ghost->next;
+	}
+}
+
 void	ft_update_ghosts(t_game *game)
 {
-	t_palyer	*ghost;
+	t_player	*ghost;
 	t_player	*closest;
 	int dir;
 	ghost = game->gh;
 	while (ghost && !ghost->moving)
 	{
 		closest = ft_murderpath(game, ghost);
+		dir = ft_choose_dir(game, ghost, closest);
+		ghost->moving = 1;
+		ft_move_ghost(dir, game, ghost);
+	}
+}
+
+void	ft_move_ghost(int d, t_game *game, t_player *gh)
+{
+	t_vector	old;
+
+	old = ft_newvector(gh->pos.x, gh->pos.y);
+	ft_memset(&game->map[gh->pos.y][gh->pos.x], \
+		'0', game->map[gh->pos.y][gh->pos.x] == 'G');
+	if (d == N)
+		gh->pos.y--;
+	if (d == S)
+		gh->pos.y++;
+	if (d == E)
+		gh->pos.x++;
+	if (d == W)
+		gh->pos.x--;
+	gh->dir = d;
+	if (game->map[gh->pos.y][gh->pos.x] == 'P')
+	{
+		game->pac_dying = 1;
+		gh->pos = old;
 	}
 }

@@ -6,11 +6,30 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 14:12:52 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/18 14:18:18 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/23 09:48:22 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/game.h"
+
+void	ft_update_score(t_game *game)
+{
+	int	i;
+	int	score;
+	int	digit;
+
+	i = 0;
+	score = game->n_moves;
+	while (i < 4)
+	{
+		digit = score % 10;
+		score /= 10;
+		mlx_put_image_to_window(game->id, game->w_id, game->sprites.score_font.black, \
+			game->width / 2 + 10 - 12 * i, game->height - 67);
+		ft_put_font(game, digit, i);
+		i++;
+	}
+}
 
 t_font	load_score_font(t_game *game)
 {
@@ -41,3 +60,46 @@ t_font	load_score_font(t_game *game)
 	return (game->sprites.score_font);
 }
 
+void	ft_put_font(t_game *game, int digit, int i)
+{
+	void	*font;
+
+	font = NULL;
+	if (digit == 0)
+		font = game->sprites.score_font.zero;
+	if (digit == 1)
+		font = game->sprites.score_font.one;
+	if (digit == 2)
+		font = game->sprites.score_font.two;
+	if (digit == 3)
+		font = game->sprites.score_font.three;
+	if (digit == 4)
+		font = game->sprites.score_font.four;
+	if (digit == 5)
+		font = game->sprites.score_font.five;
+	if (digit == 6)
+		font = game->sprites.score_font.six;
+	if (digit == 7)
+		font = game->sprites.score_font.seven;
+	if (digit == 8)
+		font = game->sprites.score_font.eight;
+	if (digit == 9)
+		font = game->sprites.score_font.nine;
+	mlx_put_image_to_window(game->id, game->w_id, font, \
+		game->width / 2 + 10 - 12 * i, game->height - 67);
+}
+
+void	free_fonts(t_game *game)
+{
+	mlx_destroy_image(game->id, game->sprites.score_font.black);
+	mlx_destroy_image(game->id, game->sprites.score_font.zero);
+	mlx_destroy_image(game->id, game->sprites.score_font.one);
+	mlx_destroy_image(game->id, game->sprites.score_font.two);
+	mlx_destroy_image(game->id, game->sprites.score_font.three);
+	mlx_destroy_image(game->id, game->sprites.score_font.four);
+	mlx_destroy_image(game->id, game->sprites.score_font.five);
+	mlx_destroy_image(game->id, game->sprites.score_font.six);
+	mlx_destroy_image(game->id, game->sprites.score_font.seven);
+	mlx_destroy_image(game->id, game->sprites.score_font.eight);
+	mlx_destroy_image(game->id, game->sprites.score_font.nine);
+}

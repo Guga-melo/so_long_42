@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 12:35:37 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/18 14:02:19 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/23 11:13:40 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,66 @@ t_sprite	init_sprites(t_game *game)
 	game->sprites.pac_dying_bak = game->sprites.pac_dying;
 	game->sprites.score_font = load_score_font(game);
 	return (game->sprites);
+}
+
+int	free_sprites(t_game *game)
+{
+	mlx_destroy_image(game->id, game->sprites.wall);
+	mlx_destroy_image(game->id, game->sprites.pacfood);
+	mlx_destroy_image(game->id, game->sprites.pacpower);
+	mlx_destroy_image(game->id, game->sprites.portal);
+	mlx_destroy_image(game->id, game->sprites.logo);
+	mlx_destroy_image(game->id, game->sprites.pacman);
+	mlx_destroy_image(game->id, game->sprites.black);
+	free_players(game);
+	free_fonts(game);
+	free_animation(game, game->sprites.pac_dying_bak);
+	return (0);
+}
+
+void	free_players(t_game *game)
+{
+	t_player	*ghost;
+	t_player	*pacman;
+
+	ghost = game->gh;
+	pacman = game->pl;
+	while (ghost)
+	{
+		free_animation(game, ghost->sprites.up_bak);
+		free_animation(game, ghost->sprites.down_bak);
+		free_animation(game, ghost->sprites.left_bak);
+		free_animation(game, ghost->sprites.right_bak);
+		free_animation(game, ghost->sprites.panic_bak);
+		ghost = ghost->next;
+	}
+	while (pacman)
+	{
+		free_animation(game, pacman->sprites.up_bak);
+		free_animation(game, pacman->sprites.down_bak);
+		free_animation(game, pacman->sprites.left_bak);
+		free_animation(game, pacman->sprites.right_bak);
+		pacman = pacman->next;
+	}
+}
+
+void	ft_free_singlepl(t_game *game, t_player *pl)
+{
+	free_animation(game, pl->sprites.up_bak);
+	free_animation(game, pl->sprites.down_bak);
+	free_animation(game, pl->sprites.left_bak);
+	free_animation(game, pl->sprites.right_bak);
+}
+
+void	ft_put_map(t_game *game, int x, int y)
+{
+	if (game->map[y][x] == '1')
+		mlx_put_image_to_window(game->id, game->w_id, game->sprites.wall, \
+			x * SIZE, y * SIZE);
+	if (game->map[y][x] == 'E')
+		mlx_put_image_to_window(game->id, game->w_id, game->sprites.portal, \
+			x * SIZE, y * SIZE);
+	if (game->map[y][x] == 'C')
+		mlx_put_image_to_window(game->id, game->w_id, game->sprites.pacfood, \
+			x * SIZE, y * SIZE);
 }

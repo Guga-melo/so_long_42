@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 13:30:42 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/22 14:32:24 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/23 11:33:38 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,44 @@ int			ft_update(t_game *game);
 void		ft_check_game(t_game *game);
 void		ft_redraw_gh(t_game *game);
 void		ft_redraw_pac(t_game *game);
-void		ft_update_ghost(t_game *game);
-t_player	ft_murderpath(t_game *game, t_player *ghost);
+void		ft_update_ghosts(t_game *game);
+t_player	*ft_murderpath(t_game *game, t_player *ghost);
+int			ft_choose_dir(t_game *game, t_player *ghost, t_player *pacman);
+void		ft_update_legal(t_game *game, t_player *ghost);
+int			ft_find_ghost(t_player *pl, t_vector pos);
+void		ft_restrict_legal(t_player *ghost);
+int			ft_legal_len(t_player *player);
+int			end_game(t_game *game);
+int			free_sprites(t_game *game);
+void		free_players(t_game *game);
+void		free_animation(t_game *game, t_list *start);
+void		free_fonts(t_game *game);
+void		free_entitylist(t_game *game);
+int			ft_advanced_dir(t_player *ghost, t_player *pacman, int *distances);
+int			ft_advanced_dir2(int *distances);
+void		ft_move_ghost(int d, t_game *game, t_player *gh);
+void		ft_next_dir(t_game *game);
+int			ft_in_legal(t_player *player, int dir);
+void		ft_anim_pacdeath(t_game *game);
+void		ft_put_ghosts(t_game *game);
+void		ft_update_score(t_game *game);
+void		ft_put_font(t_game *game, int digit, int i);
+void		ft_put_map(t_game *game, int x, int y);
+void		ft_anim_north(t_game *game, t_player *pl);
+void		ft_anim_south(t_game *game, t_player *pl);
+void		ft_anim_east(t_game *game, t_player *pl);
+void		ft_anim_west(t_game *game, t_player *pl);
+void		ft_anim_panic(t_game *game, t_player *pl);
+void		ft_put_stopped(t_game *game, t_player *pl);
+void		ft_move(int d, t_game *game, t_player *temp);
+void		ft_put_pacman(t_game *game);
+void		ft_redraw_pacfood(t_game *game, t_player *pl);
+void		ft_redraw_exit(t_game *game, t_player *pl);
+int			ft_checkmvtogh(t_game *game, int d, t_player *pl);
+int			ft_swap_tile(t_vector old, t_vector nw, t_game *game);
+int			ft_delete_entity(t_game *game, t_vector old);
+void		ft_free_singlepl(t_game *game, t_player *pl);
+int			ft_deletefirst_ent(t_game *game);
+int			ft_deletelast_ent(t_game *game);
 
 #endif

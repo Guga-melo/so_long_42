@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 08:22:23 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/22 14:37:50 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/23 10:11:14 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ void		ft_free_matrix(char ***m);
 t_vector	ft_newvector(int x, int y);
 int			ft_recursive_power(int nb, int power);
 int			ft_sqrt(int nb);
+int			ft_euclideandistance(t_vector src, t_vector dest);
 
 #endif

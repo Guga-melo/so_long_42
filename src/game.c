@@ -6,11 +6,26 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:30:23 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/22 13:42:06 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/23 11:25:26 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/game.h"
+
+
+int	end_game(t_game *game)
+{
+	free_sprites(game);
+	free_entitylist(game);
+	ft_free_matrix(&game->map);
+	ft_free_matrix(&game->map_bak);
+	mlx_clear_window(game->id, game->w_id);
+	mlx_destroy_window(game->id, game->w_id);
+	printf("%sGame Finished!\n%sTotal Moves: %d\n\n%s", GREEN, \
+		BLUE, game->n_moves, DEFAULT);
+	exit(0);
+	return (0);
+}
 
 void	init_game(char **map, t_lay lay)
 {

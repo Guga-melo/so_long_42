@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 14:27:21 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/22 14:35:47 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/23 07:39:23 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,12 @@ int	ft_recursive_power(int nb, int power)
 		nb *= ft_recursive_power(nb, power);
 	}
 	return (nb);
+}
+
+int	ft_euclideandistance(t_vector src, t_vector dest)
+{
+	return (ft_sqrt(ft_recursive_power(dest.x - src.x, 2) + \
+				ft_recursive_power(dest.y - src.y, 2)));
 }
 
 int main()
