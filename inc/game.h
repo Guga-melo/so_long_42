@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 13:30:42 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/23 11:33:38 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/23 13:19:56 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,21 @@
 # include "utils.h"
 # include "colors.h"
 # include <stdio.h>
+
+enum e_keys
+{
+	KEY_ESC = 53,
+	KEY_W = 13,
+	KEY_A = 0,
+	KEY_S = 1,
+	KEY_D = 2,
+	KEY_UP = 126,
+	KEY_DOWN = 125,
+	KEY_LEFT = 123,
+	KEY_RIGHT = 124,
+	KEY_R = 15,
+	KEY_Q = 12
+};
 
 enum e_direction
 {
@@ -182,5 +197,8 @@ int			ft_delete_entity(t_game *game, t_vector old);
 void		ft_free_singlepl(t_game *game, t_player *pl);
 int			ft_deletefirst_ent(t_game *game);
 int			ft_deletelast_ent(t_game *game);
+int			key_hook(int key, t_game *game);
+void		ft_newdirection(t_game *game, int direction);
+int			ft_reset(t_game *game);
 
 #endif

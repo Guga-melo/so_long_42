@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 10:07:19 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/23 11:42:26 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/23 13:29:15 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,3 +67,38 @@ int	ft_swap_tile(t_vector old, t_vector nw, t_game *game)
 	return (1);
 }
 
+void	ft_newdirection(t_game *game, int direction)
+{
+	t_player	*temp;
+
+	temp = game->pl;
+	if (game->n_moves < 9999)
+	{
+		game->n_moves++;
+		ft_update_score(game);
+	}
+	while (temp)
+	{
+		game->next_dir = direction;
+		temp = temp->next;
+	}
+}
+
+int	ft_reset(t_game *game)
+{
+	t_lay	lay;
+	char	**map;
+
+	map = ft_matrixdup(game->map_bak);
+	if (!map)
+		return (0);
+	lay = game->lay_bak;
+	if (game->map)
+		ft_free_matrix(&game->map);
+	free_sprites(game);
+	free_entitylist(game);
+	mlx_clear_window(game->id, game->w_id);
+	printf("\n%sGAME HAS BEEN RESET!\n%s", YELLOW, DEFAULT);
+	new_game(map, game,  &lay);
+	return (1);
+}
