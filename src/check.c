@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 08:58:48 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/22 13:43:53 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/24 08:50:46 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_lay ft_new_lay(void)
 	lay.n_pl = 0;
 	lay.n_gh = 0;
 	lay.n_coin = 0;
+	lay.n_power = 0;
 	return (lay);
 }
 

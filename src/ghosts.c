@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 09:52:06 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/23 09:55:35 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/24 14:49:34 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,20 @@ t_list	*ft_chooseghcolor(t_game *game, int i, int dir)
 {
 	t_list	*anim;
 	char	*s;
-	int		j;
 
-	j = 0;
 	anim = NULL;
 	s = NULL;
-	s = ft_substr("../sprites/Ghosts/R/", 0, 20);
+	s = ft_substr("sprites/Ghosts/R/", 0, 17);
 	if (i > 0)
 		ft_memset(&s[15], COLORS[i % 7], 1);
 	if (dir == N)
-		anim = ft_load_north(game, s, j);
+		anim = ft_load_north(game, s, 0);
 	if (dir == S)
-		anim = ft_load_south(game, s, j);
+		anim = ft_load_south(game, s, 0);
 	if (dir == E)
-		anim = ft_load_east(game, s, j);
+		anim = ft_load_east(game, s, 0);
 	if (dir == W)
-		anim = ft_load_west(game, s, j);
+		anim = ft_load_west(game, s, 0);
 	free(s);
 	return (anim);
 }
@@ -69,14 +67,14 @@ void	ft_put_ghosts(t_game *game)
 	{
 		mlx_put_image_to_window(game->id, game->w_id, game->sprites.black, \
 			ghost->win_pos.x, ghost->win_pos.y);
-		if (ghost->dir == N && !game->panic_mode && ghost->moving)
+		if (ghost->dir == N && ghost->moving)
 			ft_anim_north(game, ghost);
-		if (ghost->dir == S && !game->panic_mode && ghost->moving)
+		if (ghost->dir == S && ghost->moving)
 			ft_anim_south(game, ghost);
 		if (((ghost->dir == E && ghost->moving) || \
-				ghost->dir == ST) && !game->panic_mode)
+				ghost->dir == ST))
 			ft_anim_east(game, ghost);
-		if (ghost->dir == W && !game->panic_mode && ghost->moving)
+		if (ghost->dir == W && ghost->moving)
 			ft_anim_west(game, ghost);
 		if (game->panic_mode)
 			ft_anim_panic(game, ghost);
@@ -91,6 +89,7 @@ void	ft_update_ghosts(t_game *game)
 	t_player	*ghost;
 	t_player	*closest;
 	int dir;
+
 	ghost = game->gh;
 	while (ghost && !ghost->moving)
 	{

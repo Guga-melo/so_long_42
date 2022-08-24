@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 10:07:19 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/23 13:29:15 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/24 08:51:09 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,23 @@ void	ft_move(int d, t_game *game, t_player *temp)
 
 	if (temp && !ft_checkmvtogh(game, d, temp))
 	{
-		if (d == N && ft_strchr("0CE", game->map[temp->pos.y - 1][temp->pos.x]))
+		if (d == N && ft_strchr("0CEW", game->map[temp->pos.y - 1][temp->pos.x]))
 			nw = ft_newvector(temp->pos.x, temp->pos.y - 1);
-		else if (d == S && ft_strchr("0CE", \
+		else if (d == S && ft_strchr("0CEW", \
 				game->map[temp->pos.y + 1][temp->pos.x]))
 			nw = ft_newvector(temp->pos.x, temp->pos.y + 1);
-		else if (d == E && ft_strchr("0CE", \
+		else if (d == E && ft_strchr("0CEW", \
 				game->map[temp->pos.y][temp->pos.x + 1]))
 			nw = ft_newvector(temp->pos.x + 1, temp->pos.y);
-		else if (d == W && ft_strchr("0CE", \
+		else if (d == W && ft_strchr("0CEW", \
 				game->map[temp->pos.y][temp->pos.x - 1]))
 			nw = ft_newvector(temp->pos.x - 1, temp->pos.y);
 		else
 			nw = ft_newvector(0, 0);
 		if (game->map[nw.y][nw.x] == 'C')
 			game->lay->n_coin--;
+		if (game->map[nw.y][nw.x] == 'W')
+			game->lay->n_power++;
 		if (nw.x && nw.y)
 			ft_swap_tile(ft_newvector(temp->pos.x, temp->pos.y), nw, game);
 	}

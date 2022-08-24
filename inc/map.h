@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 08:21:20 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/22 13:42:20 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/24 08:50:12 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct	s_lay
 	int			n_pl;
 	int			n_gh;
 	int			n_coin;
+	int			n_power;
 }							t_lay;
 
 t_lay	ft_new_lay(void);

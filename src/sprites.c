@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 12:35:37 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/23 11:13:40 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/23 14:04:25 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ t_sprite	init_sprites(t_game *game)
 
 	size = SIZE;
 	game->sprites.pacman = mlx_xpm_file_to_image(game->id, \
-			"../sprites/Pac-Man/pac_closed.xpm", &size, &size);
+			"sprites/Pac-Man/pac_closed.xpm", &size, &size);
 	game->sprites.pacfood = mlx_xpm_file_to_image(game->id, \
-			"../sprites/Other/Pacdots/pacdot_food.xpm", &size, &size);
+			"sprites/Other/Pacdots/pacdot_food.xpm", &size, &size);
 	game->sprites.pacpower = mlx_xpm_file_to_image(game->id, \
-			"../sprites/Other/Pacdots/pacdot_powerup.xpm", &size, &size);
+			"sprites/Other/Pacdots/pacdot_powerup.xpm", &size, &size);
 	game->sprites.logo = mlx_xpm_file_to_image(game->id, \
-			"../sprites/Other/Logo/logo.xpm", &size, &size);
+			"sprites/Other/Logo/logo.xpm", &size, &size);
 	game->sprites.black = mlx_xpm_file_to_image(game->id, \
-			"../sprites/Pac-Man/black.xpm", &size, &size);
+			"sprites/Pac-Man/black.xpm", &size, &size);
 	game->sprites.wall = mlx_xpm_file_to_image(game->id, \
-			"../sprites/Other/Walls/wall.xpm", &size, &size);
+			"sprites/Other/Walls/wall.xpm", &size, &size);
 	game->sprites.portal = mlx_xpm_file_to_image(game->id, \
-			"../sprites/Other/Portal/portal.xpm", &size, &size);
+			"sprites/Other/Portal/portal.xpm", &size, &size);
 	game->sprites.pac_dying = load_pac_death(game);
 	game->sprites.pac_dying_bak = game->sprites.pac_dying;
 	game->sprites.score_font = load_score_font(game);
@@ -96,5 +96,8 @@ void	ft_put_map(t_game *game, int x, int y)
 			x * SIZE, y * SIZE);
 	if (game->map[y][x] == 'C')
 		mlx_put_image_to_window(game->id, game->w_id, game->sprites.pacfood, \
+			x * SIZE, y * SIZE);
+	if (game->map[y][x] == 'W')
+		mlx_put_image_to_window(game->id, game->w_id, game->sprites.pacpower, \
 			x * SIZE, y * SIZE);
 }
