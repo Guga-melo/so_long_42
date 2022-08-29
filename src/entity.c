@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 08:36:06 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/23 11:16:56 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/29 14:27:41 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,28 +69,6 @@ int	ft_delete_entity(t_game *game, t_vector old)
 	return (1);
 }
 
-int	ft_checkmvtogh(t_game *game, int d, t_player *pl)
-{
-	t_player	*gh;
-
-	gh = game->gh;
-	while (gh)
-	{
-		if (d == N && pl->pos.y - 1 == gh->pos.y && pl->pos.x == gh->pos.x)
-			game->pac_dying = 1;
-		if (d == S && pl->pos.y + 1 == gh->pos.y && pl->pos.x == gh->pos.x)
-			game->pac_dying = 1;
-		if (d == E && pl->pos.y == gh->pos.y && pl->pos.x + 1 == gh->pos.x)
-			game->pac_dying = 1;
-		if (d == W && pl->pos.y == gh->pos.y && pl->pos.x - 1 == gh->pos.x)
-			game->pac_dying = 1;
-		if (pl->pos.y == gh->pos.y && pl->pos.x == gh->pos.x)
-			game->pac_dying = 1;
-		gh = gh->next;
-	}
-	return (game->pac_dying);
-}
-
 int	ft_update(t_game *game)
 {
 	int		x;
@@ -101,7 +79,6 @@ int	ft_update(t_game *game)
 	ft_check_game(game);
 	if (game->redraw)
 	{
-		ft_put_ghosts(game);
 		mlx_put_image_to_window(game->id, game->w_id, game->sprites.logo, \
 		(game->width - 131) / 2, game->height - 42);
 		ft_update_score(game);

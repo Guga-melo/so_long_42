@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 08:22:34 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/24 10:43:52 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/29 14:31:08 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	ft_entitylist(char **map, t_game *game)
 		{
 			if (map[y][x] == 'P')
 				ft_entadd_back(&game->pl, ft_entnew(ft_newvector(x, y)));
-			if (map[y][x] == 'G')
-				ft_entadd_back(&game->gh, ft_entnew(ft_newvector(x, y)));
 			x++;
 		}
 		y++;
@@ -67,13 +65,6 @@ void	free_entitylist(t_game *game)
 	{
 		temp = game->pl;
 		game->pl = game->pl->next;
-		free(temp);
-		temp = NULL;
-	}
-	while (game->gh)
-	{
-		temp = game->gh;
-		game->gh = game->gh->next;
 		free(temp);
 		temp = NULL;
 	}

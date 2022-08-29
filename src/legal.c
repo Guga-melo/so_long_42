@@ -6,22 +6,18 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 07:50:47 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/23 11:01:45 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/29 10:02:11 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/game.h"
 
-void	ft_update_legal(t_game *game, t_player *gh)
+void	ft_update_legal(t_game *game, t_player *pl)
 {
-	gh->legal.north = (!ft_strchr("1G", game->map[gh->pos.y - 1][gh->pos.x] \
-				&& !ft_find_ghost(game->gh, ft_newvector(gh->pos.x, gh->pos.y - 1))));
-	gh->legal.south = (!ft_strchr("1G", game->map[gh->pos.y + 1][gh->pos.x] \
-				&& !ft_find_ghost(game->gh, ft_newvector(gh->pos.x, gh->pos.y + 1))));
-	gh->legal.east = (!ft_strchr("1G", game->map[gh->pos.y][gh->pos.x + 1] \
-				&& !ft_find_ghost(game->gh, ft_newvector(gh->pos.x + 1, gh->pos.y))));
-	gh->legal.west = (!ft_strchr("1G", game->map[gh->pos.y][gh->pos.x - 1] \
-				&& !ft_find_ghost(game->gh, ft_newvector(gh->pos.x - 1, gh->pos.y))));
+	pl->legal.north = (!ft_strchr("1G", game->map[pl->pos.y - 1][pl->pos.x]));
+	pl->legal.south = (!ft_strchr("1G", game->map[pl->pos.y + 1][pl->pos.x]));
+	pl->legal.east = (!ft_strchr("1G", game->map[pl->pos.y][pl->pos.x + 1]));
+	pl->legal.west = (!ft_strchr("1G", game->map[pl->pos.y][pl->pos.x - 1]));
 }
 
 void	ft_restrict_legal(t_player *ghost)

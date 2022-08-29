@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 10:07:19 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/24 08:51:09 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/29 10:42:58 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,23 @@ void	ft_move(int d, t_game *game, t_player *temp)
 {
 	t_vector	nw;
 
-	if (temp && !ft_checkmvtogh(game, d, temp))
+	if (temp)
 	{
-		if (d == N && ft_strchr("0CEW", game->map[temp->pos.y - 1][temp->pos.x]))
+		if (d == N && ft_strchr("0CE", game->map[temp->pos.y - 1][temp->pos.x]))
 			nw = ft_newvector(temp->pos.x, temp->pos.y - 1);
-		else if (d == S && ft_strchr("0CEW", \
+		else if (d == S && ft_strchr("0CE", \
 				game->map[temp->pos.y + 1][temp->pos.x]))
 			nw = ft_newvector(temp->pos.x, temp->pos.y + 1);
-		else if (d == E && ft_strchr("0CEW", \
+		else if (d == E && ft_strchr("0CE", \
 				game->map[temp->pos.y][temp->pos.x + 1]))
 			nw = ft_newvector(temp->pos.x + 1, temp->pos.y);
-		else if (d == W && ft_strchr("0CEW", \
+		else if (d == W && ft_strchr("0CE", \
 				game->map[temp->pos.y][temp->pos.x - 1]))
 			nw = ft_newvector(temp->pos.x - 1, temp->pos.y);
 		else
 			nw = ft_newvector(0, 0);
 		if (game->map[nw.y][nw.x] == 'C')
-			game->lay->n_coin--;
-		if (game->map[nw.y][nw.x] == 'W')
-			game->lay->n_power++;
+			game->lay->n_coin--;;
 		if (nw.x && nw.y)
 			ft_swap_tile(ft_newvector(temp->pos.x, temp->pos.y), nw, game);
 	}
@@ -84,23 +82,4 @@ void	ft_newdirection(t_game *game, int direction)
 		game->next_dir = direction;
 		temp = temp->next;
 	}
-}
-
-int	ft_reset(t_game *game)
-{
-	t_lay	lay;
-	char	**map;
-
-	map = ft_matrixdup(game->map_bak);
-	if (!map)
-		return (0);
-	lay = game->lay_bak;
-	if (game->map)
-		ft_free_matrix(&game->map);
-	free_sprites(game);
-	free_entitylist(game);
-	mlx_clear_window(game->id, game->w_id);
-	printf("\n%sGAME HAS BEEN RESET!\n%s", YELLOW, DEFAULT);
-	new_game(map, game,  &lay);
-	return (1);
 }
