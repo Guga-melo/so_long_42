@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 12:35:37 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/30 08:26:36 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/31 13:49:14 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ t_sprite	init_sprites(t_game *game)
 			"sprites/Other/Walls/wall.xpm", &size, &size);
 	game->sprites.portal = mlx_xpm_file_to_image(game->id, \
 			"sprites/Other/Portal/portal.xpm", &size, &size);
+	game->sprites.intra = mlx_xpm_file_to_image(game->id, \
+			"sprites/background.xpm", &size, &size);
 	game->sprites.score_font = load_score_font(game);
 	return (game->sprites);
 }

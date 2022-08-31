@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 08:36:06 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/29 14:27:41 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/31 13:06:55 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int	ft_update(t_game *game)
 	int		y;
 
 	y = 0;
+
 	game->n_frames++;
 	ft_check_game(game);
 	if (game->redraw)

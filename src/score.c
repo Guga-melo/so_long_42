@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 14:12:52 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/30 08:59:13 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/31 11:02:36 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_update_score(t_game *game)
 		digit = score % 10;
 		score /= 10;
 		mlx_put_image_to_window(game->id, game->w_id, game->sprites.score_font.black, \
-			game->width / 2 - 2 * i, game->height - 67);
+			game->width / 2 + 10 - 12 * i, game->height - 67);
 		ft_put_font(game, digit, i);
 		i++;
 	}

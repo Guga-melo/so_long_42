@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 08:58:48 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/24 08:50:46 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/31 09:41:10 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ t_lay ft_new_lay(void)
 	lay.n_col = 0;
 	lay.n_exit = 0;
 	lay.n_pl = 0;
-	lay.n_gh = 0;
 	lay.n_coin = 0;
-	lay.n_power = 0;
 	return (lay);
 }
 
@@ -58,12 +56,6 @@ char	**check_map(int fd, t_lay *lay)
 	full_map = NULL;
 	*lay = ft_new_lay();
 	ft_read_map(fd, lay, &map_line);
-	printf("\n%d\n", lay->n_col);
-	printf("\n%d\n", lay->n_row);
-	printf("\n%d\n", lay->n_exit);
-	printf("\n%d\n", lay->n_pl);
-	printf("\n%d\n", lay->n_gh);
-	printf("\n%d\n", lay->n_coin);
 	full_map = ft_split(map_line, '\n');
 	free(map_line);
 	if (!full_map)

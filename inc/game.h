@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 13:30:42 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/29 10:36:38 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/31 10:26:23 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,7 @@
 # define SIZE 32
 # define COLORS "RBKOGYP"
 # define GAME_RATE 17
-# ifdef __linux__
-#  include "../minilibx-linux/mlx.h"
-# else
-#  include "../minilibx/mlx.h"
-# endif
-
+# include "../minilibx/mlx.h"
 # include "../libft/libft.h"
 # include "map.h"
 # include "utils.h"
@@ -87,6 +82,7 @@ typedef struct s_sprite
 	void		*portal;
 	void		*pacman;
 	void		*black;
+	void		*intra;
 	t_font		score_font;
 }				t_sprite;
 
