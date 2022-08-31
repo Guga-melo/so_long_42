@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 12:35:37 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/29 09:35:32 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/30 08:26:36 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_sprite	init_sprites(t_game *game)
 	game->sprites.logo = mlx_xpm_file_to_image(game->id, \
 			"sprites/Other/Logo/logo.xpm", &size, &size);
 	game->sprites.black = mlx_xpm_file_to_image(game->id, \
-			"sprites/Pac-Man/black.xpm", &size, &size);
+			"sprites/Other/Walls/black.xpm", &size, &size);
 	game->sprites.wall = mlx_xpm_file_to_image(game->id, \
 			"sprites/Other/Walls/wall.xpm", &size, &size);
 	game->sprites.portal = mlx_xpm_file_to_image(game->id, \
