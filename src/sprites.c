@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 12:35:37 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/31 13:49:14 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/31 14:37:47 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_sprite	init_sprites(t_game *game)
 {
-	int size;
+	int	size;
 
 	size = SIZE;
 	game->sprites.pacman = mlx_xpm_file_to_image(game->id, \

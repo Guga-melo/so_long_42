@@ -6,13 +6,13 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 08:58:48 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/31 09:41:10 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/31 14:44:44 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/check.h"
 
-t_lay ft_new_lay(void)
+t_lay	ft_new_lay(void)
 {
 	t_lay	lay;
 

@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 08:14:49 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/17 10:42:53 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/31 14:37:29 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,10 @@ char	*ft_strenlarge(char *s1, char *s2)
 	result = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (result == 0)
 		return (0);
-	i = 0;
+	i = -1;
 	j = 0;
-	while (s1[i] != 0)
-	{
+	while (s1[++i] != 0)
 		result[i + j] = s1[i];
-		i++;
-	}
 	while (s2[j] != 0)
 	{
 		result[i + j] = s2[j];
@@ -45,7 +42,7 @@ char	*ft_strenlarge(char *s1, char *s2)
 
 int	ft_countchar(char *s, int c)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (!s)
@@ -61,8 +58,8 @@ int	ft_countchar(char *s, int c)
 
 int	ft_strrncmp(char *s1, char *s2, size_t n)
 {
-	int len1;
-	int len2;
+	int	len1;
+	int	len2;
 
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);

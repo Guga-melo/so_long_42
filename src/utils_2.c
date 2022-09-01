@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 09:26:31 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/24 09:07:07 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/31 14:34:56 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 size_t	ft_matrixlen(char **m)
 {
 	size_t	r;
-	size_t		i;
+	size_t	i;
 
 	r = 0;
 	i = -1;

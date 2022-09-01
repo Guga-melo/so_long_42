@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:30:23 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/31 14:25:28 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/31 14:43:26 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,13 @@ void	init_game(char **map, t_lay lay)
 
 	game.lay_bak = lay;
 	game.n_collect_bak = lay.n_coin;
-	game.map_bak = ft_matrixdup(map);	
+	game.map_bak = ft_matrixdup(map);
 	game.id = mlx_init();
-	game.w_id = mlx_new_window(game.id, lay.n_col * SIZE, lay.n_row * SIZE + 80, "Puc-Man");
+	game.w_id = mlx_new_window(game.id, lay.n_col * SIZE, \
+			lay.n_row * SIZE + 80, "Puc-Man");
 	new_game(map, &game, &lay);
 }
+
 void	new_game(char **map, t_game *game, t_lay *lay)
 {
 	game->n_frames = 1;
@@ -64,7 +66,8 @@ void	new_game(char **map, t_game *game, t_lay *lay)
 	game->lay = lay;
 	game->map = map;
 	game->sprites = init_sprites(game);
-	mlx_put_image_to_window(game->id, game->w_id, game->sprites.intra, game->height / 6 * -3, game->width / 8 * -1);
+	mlx_put_image_to_window(game->id, game->w_id, \
+			game->sprites.intra, game->height / 6 * -3, game->width / 8 * -1);
 	game->pl = NULL;
 	ft_entitylist(map, game);
 	game->next_dir = 0;

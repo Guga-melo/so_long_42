@@ -6,12 +6,11 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 13:11:45 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/31 14:15:34 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/31 14:41:20 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/game.h"
-
 
 void	ft_load_pacmans(t_game *game)
 {

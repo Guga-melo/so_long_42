@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 09:57:56 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/31 09:38:38 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/31 14:47:12 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_anim_north(t_game *game, t_player *pl)
 	t_player	*temp;
 
 	temp = pl;
-	if (!(game->n_frames % (( game->g_rate + game->g_rate) / 7)))
+	if (!(game->n_frames % ((game->g_rate + game->g_rate) / 7)))
 		temp->sprites.up = temp->sprites.up->next;
 	if (!temp->sprites.up)
 		temp->sprites.up = temp->sprites.up_bak;

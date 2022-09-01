@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 10:07:19 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/31 14:21:43 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/31 14:34:36 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_move(int d, t_game *game, t_player *temp)
 		else
 			nw = ft_newvector(0, 0);
 		if (game->map[nw.y][nw.x] == 'C')
-			game->lay->n_coin--;;
+			game->lay->n_coin--;
 		if (nw.x && nw.y)
 			ft_swap_tile(ft_newvector(temp->pos.x, temp->pos.y), nw, game);
 	}

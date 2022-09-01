@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 08:36:06 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/31 13:06:55 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/08/31 14:44:26 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_player	*ft_entnew(t_vector pos)
 {
-	t_player *player;
+	t_player	*player;
 
 	player = malloc(sizeof(t_player));
 	if (!player)
@@ -75,7 +75,6 @@ int	ft_update(t_game *game)
 	int		y;
 
 	y = 0;
-
 	game->n_frames++;
 	ft_check_game(game);
 	if (game->redraw)
