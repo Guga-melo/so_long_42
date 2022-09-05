@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 08:58:48 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/31 14:44:44 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/09/01 09:47:04 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,13 @@ char	**check_map(int fd, t_lay *lay)
 	*lay = ft_new_lay();
 	ft_read_map(fd, lay, &map_line);
 	full_map = ft_split(map_line, '\n');
+	lay_error_check(lay, full_map);
 	free(map_line);
 	if (!full_map)
 	{
-		printf("\nERRO: alocação de memória corrupta");
-		return (0);
+		ft_printf("ERRO\nAlocação de memória corrupta");
+		exit(EXIT_FAILURE);
 	}
+	fullmap_error_check(full_map);
 	return (full_map);
 }

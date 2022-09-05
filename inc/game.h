@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 13:30:42 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/31 10:26:23 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/09/05 08:45:22 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ typedef struct s_game
 	t_lay		lay_bak;
 	t_sprite	sprites;
 	t_player	*pl;
+	t_player	*gh;
 	int			next_dir;
 	char		**map;
 	char		**map_bak;
@@ -132,11 +133,12 @@ t_font		load_score_font(t_game *game);
 void		ft_entitylist(char **map, t_game *game);
 t_player	*ft_entnew(t_vector pos);
 void    	ft_entadd_back(t_player **lst, t_player *newnode);
+void		ft_load_pacmans(t_game *game);
+void		ft_load_ghosts(t_game *game);
 t_list		*ft_load_north(t_game *game, int i);
 t_list		*ft_load_south(t_game *game, int i);
 t_list		*ft_load_east(t_game *game, int i);
 t_list		*ft_load_west(t_game *game, int i);
-void		ft_load_pacmans(t_game *game);
 int			ft_update(t_game *game);
 void		ft_check_game(t_game *game);
 void		ft_redraw_pac(t_game *game);
