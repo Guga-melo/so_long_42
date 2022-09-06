@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 08:41:41 by gussoare          #+#    #+#             */
-/*   Updated: 2022/05/26 10:35:51 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/09/06 09:40:04 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static size_t	ft_wordcount(char const *s, char c)
 			j++;
 		i++;
 	}
+
 	return (j);
 }
 
@@ -38,7 +39,7 @@ static size_t	ft_strsize(char const *s, char c)
 	return (i);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	size_t	i;
 	size_t	j;

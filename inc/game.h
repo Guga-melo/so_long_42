@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 13:30:42 by gussoare          #+#    #+#             */
-/*   Updated: 2022/09/05 08:45:22 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/09/05 10:36:00 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,6 @@ typedef struct s_game
 	t_lay		lay_bak;
 	t_sprite	sprites;
 	t_player	*pl;
-	t_player	*gh;
 	int			next_dir;
 	char		**map;
 	char		**map_bak;
