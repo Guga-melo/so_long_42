@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 11:28:37 by gussoare          #+#    #+#             */
-/*   Updated: 2022/09/01 09:17:44 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/09/06 14:05:03 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_read_map(int fd, t_lay *lay, char **map_line)
 		{
 			if (!lay->n_col)
 			{
-				ft_printf("ERRO: Mapa vazio");
+				ft_printf("ERROR\nEmpty map");
 				exit(EXIT_FAILURE);
 			}
 			break ;

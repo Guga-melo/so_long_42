@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 08:58:48 by gussoare          #+#    #+#             */
-/*   Updated: 2022/09/06 09:48:22 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/09/06 14:07:15 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,19 @@ char	**check_param(int argc, char **argv, t_lay *lay)
 
 	if (argc != 2)
 	{
-		printf("Número de argumentos inválido");
-		return (0);
+		ft_printf("ERROR\nInvalid number of arguments");
+		exit(EXIT_FAILURE);
 	}
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 	{
-		printf("ERRO: arquivo: %s", argv[1]);
-		return (0);
+		printf("ERROR\nFile do not open or exist: %s", argv[1]);
+		exit(EXIT_FAILURE);
 	}
 	if (ft_strrncmp(argv[1], ".ber", 4))
 	{
-		printf("ERRO: tipo de arquivo invalido, use .ber!");
-		return (0);
+		printf("ERROR\nWrong file type, use .ber!");
+		exit(EXIT_FAILURE);
 	}
 	return (check_map(fd, lay));
 }
@@ -61,7 +61,7 @@ char	**check_map(int fd, t_lay *lay)
 	free(map_line);
 	if (!full_map)
 	{
-		ft_printf("ERRO\nAlocação de memória corrupta");
+		ft_printf("ERROR\nFull_map was not allocated correctly");
 		exit(EXIT_FAILURE);
 	}
 	fullmap_error_check(full_map);

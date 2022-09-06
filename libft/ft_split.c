@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 08:41:41 by gussoare          #+#    #+#             */
-/*   Updated: 2022/09/06 09:40:04 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/09/06 14:11:21 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,22 @@
 static size_t	ft_wordcount(char const *s, char c)
 {
 	size_t	i;
-	size_t	j;
+	size_t	count;
 
 	i = 0;
-	j = 0;
-	while (s[i] != 0)
+	count = 0;
+	while (s[i])
 	{
-		if (s[i] != c && (s[i - 1] == c || i == 0))
-			j++;
-		i++;
+		if (!(s[i] == c))
+		{
+			count++;
+			while (s[i] && s[i] != c)
+				i++;
+		}
+		else
+			i++;
 	}
-
-	return (j);
+	return (count);
 }
 
 static size_t	ft_strsize(char const *s, char c)
@@ -39,7 +43,7 @@ static size_t	ft_strsize(char const *s, char c)
 	return (i);
 }
 
-char	**ft_split(char *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
@@ -63,6 +67,7 @@ char	**ft_split(char *s, char c)
 	str[i] = 0;
 	return (str);
 }
+
 /*#include <stdio.h>
 
 int main()

@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 09:26:31 by gussoare          #+#    #+#             */
-/*   Updated: 2022/09/06 10:07:36 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/09/06 14:18:46 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 size_t	ft_matrixlen(char **m)
 {
-	size_t	r;
 	size_t	i;
 
-	r = 0;
-	i = -1;
-	while (m[++i])
-		r++;
-	return (r);
+	i = 0;
+	while (m[i])
+		i++;
+	return (i);
 }
 
 void	ft_free_matrix(char ***m)

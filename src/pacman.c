@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 13:11:45 by gussoare          #+#    #+#             */
-/*   Updated: 2022/09/05 13:44:48 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/09/06 13:50:42 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	ft_put_pacman(t_game *game)
 	pacman = game->pl;
 	while (pacman)
 	{
-
 		mlx_put_image_to_window(game->id, game->w_id, game->sprites.black, \
 				pacman->win_pos.x, pacman->win_pos.y);
 		if (pacman->dir == N && pacman->moving)
