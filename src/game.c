@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:30:23 by gussoare          #+#    #+#             */
-/*   Updated: 2022/09/06 10:07:46 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/09/12 14:05:34 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	key_hook(int key, t_game *game)
 {	
 	if (key == KEY_ESC)
 	{
-		printf("\n%sYou quit the game early!%s\n\n", RED, DEFAULT);
+		ft_printf("\n%sYou quit the game!%s\n\n", RED, DEFAULT);
 		end_game(game);
 	}
 	if ((key == KEY_UP || key == KEY_W) && game->next_dir != N)
@@ -38,7 +38,7 @@ int	end_game(t_game *game)
 	ft_free_matrix(&game->map_bak);
 	mlx_clear_window(game->id, game->w_id);
 	mlx_destroy_window(game->id, game->w_id);
-	printf("%sGame Finished!\n%sTotal Moves: %d\n\n%s", GREEN, \
+	ft_printf("%sGame Finished!\n%sTotal Moves: %d\n\n%s", GREEN, \
 		BLUE, game->n_moves, DEFAULT);
 	exit(0);
 	return (0);
@@ -85,7 +85,7 @@ void	ft_check_game(t_game *game)
 		ft_next_dir(game);
 	if (!game->lay->n_coin && !game->lay->n_pl)
 	{
-		printf("%sCONGRATULATIONS, YOU WIN!%s\n\n", GREEN, DEFAULT);
+		ft_printf("%sCONGRATULATIONS, YOU WIN!%s\n\n", GREEN, DEFAULT);
 		end_game(game);
 	}
 }

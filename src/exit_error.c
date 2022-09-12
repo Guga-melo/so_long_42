@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 09:06:26 by gussoare          #+#    #+#             */
-/*   Updated: 2022/09/05 08:49:31 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/09/12 13:53:33 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	fullmap_error_check(char **m)
 		x = 0;
 		while (m[y][x])
 		{
-			if (!ft_strchr("EGPC10", m[y][x]))
+			if (!ft_strchr("EPC10", m[y][x]))
 			{
 				ft_printf("ERROR\nInvalid character in <map.ber>");
 				exit(EXIT_FAILURE);
@@ -66,4 +66,13 @@ void	lay_error_check(t_lay *lay, char **m)
 		ft_missing_char('P');
 	if (lay->n_coin == 0)
 		ft_missing_char('C');
+}
+
+void	path_error_check(int valid)
+{
+	if (valid == 0)
+	{
+		ft_printf("ERROR\nCurrent map path is not valid");
+		exit(EXIT_FAILURE);
+	}
 }

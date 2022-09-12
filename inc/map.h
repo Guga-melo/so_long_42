@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 08:21:20 by gussoare          #+#    #+#             */
-/*   Updated: 2022/09/01 10:13:04 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/09/12 14:01:48 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include "../GNL/get_next_line.h"
 
-typedef struct	s_lay
+typedef struct s_lay
 {
 	int			n_row;
 	int			n_col;
@@ -32,6 +32,9 @@ void	ft_read_map(int fd, t_lay *lay, char **map_line);
 void	ft_check_lay(char *line, t_lay *lay);
 void	fullmap_error_check(char **m);
 void	lay_error_check(t_lay *lay, char **m);
+void	ft_validate_path(char **map, t_lay lay);
+int		ft_infest(char **map, int x, int y);
+void	ft_validate_path2(char **map);
+void	path_error_check(int valid);
 
 #endif
-

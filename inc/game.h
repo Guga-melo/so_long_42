@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 13:30:42 by gussoare          #+#    #+#             */
-/*   Updated: 2022/09/05 10:36:00 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/09/12 14:05:54 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # include "map.h"
 # include "utils.h"
 # include "colors.h"
-# include <stdio.h>
 
 enum e_keys
 {
@@ -131,7 +130,7 @@ t_sprite	init_sprites(t_game *game);
 t_font		load_score_font(t_game *game);
 void		ft_entitylist(char **map, t_game *game);
 t_player	*ft_entnew(t_vector pos);
-void    	ft_entadd_back(t_player **lst, t_player *newnode);
+void		ft_entadd_back(t_player **lst, t_player *newnode);
 void		ft_load_pacmans(t_game *game);
 void		ft_load_ghosts(t_game *game);
 t_list		*ft_load_north(t_game *game, int i);

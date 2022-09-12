@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 08:22:23 by gussoare          #+#    #+#             */
-/*   Updated: 2022/08/23 10:11:14 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/09/12 14:01:59 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "../libft/libft.h"
 # include "game.h"
-
 
 char		*ft_strenlarge(char *s1, char *s2);
 int			ft_countchar(char *s, int c);

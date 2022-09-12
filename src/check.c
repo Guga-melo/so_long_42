@@ -6,11 +6,25 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 08:58:48 by gussoare          #+#    #+#             */
-/*   Updated: 2022/09/06 14:07:15 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/09/12 13:59:40 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/check.h"
+
+int	ft_check_exit(char **map, int x, int y)
+{
+	if (map[y][x + 1] == 'P')
+		return (1);
+	else if (map[y][x - 1] == 'P')
+		return (1);
+	else if (map[y + 1][x] == 'P')
+		return (1);
+	else if (map[y - 1][x] == 'P')
+		return (1);
+	else
+		return (0);
+}
 
 t_lay	ft_new_lay(void)
 {
