@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 08:58:48 by gussoare          #+#    #+#             */
-/*   Updated: 2022/09/12 13:59:40 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/09/14 12:40:57 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ char	**check_param(int argc, char **argv, t_lay *lay)
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 	{
-		printf("ERROR\nFile do not open or exist: %s", argv[1]);
+		ft_printf("ERROR\nFile do not open or exist: %s", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	if (ft_strrncmp(argv[1], ".ber", 4))
 	{
-		printf("ERROR\nWrong file type, use .ber!");
+		ft_printf("ERROR\nWrong file type, use .ber!");
 		exit(EXIT_FAILURE);
 	}
 	return (check_map(fd, lay));

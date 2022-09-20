@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 09:06:26 by gussoare          #+#    #+#             */
-/*   Updated: 2022/09/12 13:53:33 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/09/14 12:41:35 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	fullmap_error_check(char **m)
 
 static void	ft_missing_char(char c)
 {
-	printf("ERROR\nMissing '%c' character in <map.ber>", c);
+	ft_printf("ERROR\nMissing '%c' character in <map.ber>", c);
 	exit(EXIT_FAILURE);
 }
 
